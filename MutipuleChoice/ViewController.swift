@@ -30,16 +30,38 @@ class ViewController: UIViewController {
     @IBAction func check(_ sender: Any) {
         
         // GUARD STATEMENT
-        guard let numberOfQuestion = numberOfQuestionInput.text, numberOfQuestionInput.text!.count > 0 else {
-            resultOutput.text = "Please enter the number of questions on the test"
-            return
-        }; guard let studentAnswer = studentAnswerInput.text, numberOfQuestionInput.text!.count > 0 else {
-            resultOutput.text = "Please enter the student's answer"
-            return
-        }; guard let correctAnswer = correctAnswerInput.text, numberOfQuestionInput.text!.count > 0 else {
-            resultOutput.text = "Please enter the correct answer"
+        
+        //  the value entered is greater than 0
+        guard let numberOfQuestionAsString = numberOfQuestionInput.text, numberOfQuestionAsString.count > 0, let numberOfQuestion = Int(numberOfQuestionAsString) else {
+            resultOutput.text = "Please enter a integer value greater than zero"
             return
         }
         
-}
+        // make sure the number of question entered is equal to the number of student answer
+        guard let studentAnswer = studentAnswerInput.text, studentAnswer.count == numberOfQuestion else {
+            resultOutput.text = "Please be sure you input exectly \(numberOfQuestion) answers"
+            return
+        }
+        
+        // make sure the number of correct answer is equal to the number of student answer
+        guard let correctAnswer = correctAnswerInput.text, correctAnswer.count == studentAnswer.count else {
+            resultOutput.text = "Please be sure you input exectly \(numberOfQuestion) answers to the answer key"
+            return
+        }
+        
+        // PROCESS
+        var numberOfRightAnswer = 0
+        
+        
+        for (position) in studentAnswer && {for (position) in correctAnswer {
+            if position == character {
+                numberOfRightAnswer += 1
+            }
+            for (character) in studentAnswer && for (character) in correctAnswer {
+        
+            }
+            }{
+        }
+        resultOutput.text = "The student answered \(numberOfRightAnswer) question(s) correctly"
+    }
 }
