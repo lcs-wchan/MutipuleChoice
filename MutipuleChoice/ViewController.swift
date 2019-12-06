@@ -52,16 +52,6 @@ class ViewController: UIViewController {
         // PROCESS
         var numberOfRightAnswer = 0
         
-        
-        for (position) in studentAnswer && {for (position) in correctAnswer {
-            if position == character {
-                numberOfRightAnswer += 1
-            }
-            for (character) in studentAnswer && for (character) in correctAnswer {
-        
-            }
-            }{
-        }
-        resultOutput.text = "The student answered \(numberOfRightAnswer) question(s) correctly"
     }
+    
 }
