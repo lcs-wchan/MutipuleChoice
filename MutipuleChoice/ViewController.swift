@@ -52,6 +52,26 @@ class ViewController: UIViewController {
         // PROCESS
         var numberOfRightAnswer = 0
         
+        // loop over each character and position in the student answer
+        for (position,character) in studentAnswer.enumerated() {
+            let indexS = studentAnswer.index (studentAnswer.startIndex, offsetBy: position)
+            
+            // loop over each character and position in the correct answer
+            let (position,character) in correctAnswer.enumerated(){
+                var indexC = correctAnswer.index (correctAnswer.startIndex, offsetBy: position)
+                
+                // when the position and the character are equal, the number of right answer increases by one
+                if indexS == indexC {
+                    numberOfRightAnswer += 1
+                }
+            }
+        }
+        
+        // output
+        resultOutput.text = "The student answered \(numberOfRightAnswer) question(s) correctly"
+        
+        
+        
+        
     }
-    
 }
